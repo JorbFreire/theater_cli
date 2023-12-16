@@ -1,4 +1,5 @@
 cli_bin
+*.o
 .vscode
 data/*
 
