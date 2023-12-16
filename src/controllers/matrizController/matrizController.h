@@ -2,15 +2,14 @@
 #define MATRIZ_CONTROLLER_HEADER
 
 #include "../../models/Assento.h"
-struct MatrizController
+typedef struct
 {
   void (*inicializarMatriz)();
   void (*liberarMatriz)();
-};
-typedef MatrizController;
+} MatrizController;
 
 MatrizController getMatrizController();
-Assento inicializarMatriz(int, int);
+Assento **inicializarMatriz(int, int);
 void liberarMatriz(Assento **, int);
 
 #endif

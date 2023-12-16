@@ -1,5 +1,6 @@
 #ifndef ASSENTO_HEADER
 #define ASSENTO_HEADER
+#define MAX_NAME_LENGTH 99
 
 struct Assento
 {
