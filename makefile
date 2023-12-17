@@ -20,7 +20,8 @@ $(TARGET): $(OBJS)
 	$(LD) -o $@ $^
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER_FILES)
-	$(CXX) -c -o $@ $<
+	$(CXX) -c -o $@ $< -Wall -g
+
 
 clean:
 	rm src/**/*.o $(TARGET)

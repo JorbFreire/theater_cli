@@ -4,12 +4,12 @@
 #include "../../models/Assento.h"
 typedef struct
 {
-  void (*inicializarMatriz)();
-  void (*liberarMatriz)();
+  Assento **(*inicializarMatriz)(int numLinhas, int numColunas);
+  void (*liberarMatriz)(Assento **matriz, int numLinhas);
 } MatrizController;
 
 MatrizController getMatrizController();
-Assento **inicializarMatriz(int, int);
-void liberarMatriz(Assento **, int);
+Assento **inicializarMatriz(int numLinhas, int numColunas);
+void liberarMatriz(Assento **matriz, int numLinhas);
 
 #endif

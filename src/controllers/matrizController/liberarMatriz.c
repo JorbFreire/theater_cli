@@ -1,11 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "matrizController.h"
 
 void liberarMatriz(Assento **matriz, int linhas)
 {
-  for (int index = 0; index < linhas; ++index)
+  for (int rowIndex = 0; rowIndex < linhas; rowIndex++)
   {
-    free(matriz[index]);
+    // Free the entire row of Assento structures
+    free(matriz[rowIndex]);
   }
+
+  // Free the array of pointers to rows
   free(matriz);
 }

@@ -3,13 +3,11 @@
 
 #include "Assento.h"
 
-struct Teatro
+typedef struct Teatro
 {
   Assento **assentos[99];
   int linhasTamanho;
   int colunasTamanho;
-};
-
-typedef Teatro;
+} Teatro;
 
 #endif
