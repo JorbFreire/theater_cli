@@ -1,11 +1,14 @@
 #include <stdio.h>
-#include "models/Teatro.h"
 #include "controllers/teatroController/teatroController.h"
+#include "repository/repository.h"
 
 int main()
 {
-  TeatroController teatroController = getTeatroController();
+  Repository repository = getRepository();
   printf("hello world\n");
-  Teatro teatro = teatroController.criarTeatro(20, 20);
+
+  Teatro teatro = repository.carregarEstado("data.txt");
+  repository.salvarEstado(teatro, "data.txt");
+
   return 1;
 }

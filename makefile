@@ -11,6 +11,9 @@ SRC_FILES = \
 	src/controllers/teatroController/criarTeatro.c \
 	src/controllers/teatroController/exibirTeatro.c \
 	src/controllers/teatroController/index.c \
+	src/repository/salvarEstado.c \
+	src/repository/carregarEstado.c \
+	src/repository/index.c \
 
 
 HEADER_FILES = \
@@ -18,6 +21,7 @@ HEADER_FILES = \
 	src/models/Teatro.h \
 	src/controllers/matrizController/matrizController.h \
 	src/controllers/teatroController/teatroController.h \
+	src/repository/repository.h \
 
 OBJS=$(SRC_FILES:.c=.o)
 

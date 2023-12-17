@@ -14,6 +14,8 @@ Assento **inicializarMatriz(int numLinhas, int numColunas)
     for (int columnIndex = 0; columnIndex < numLinhas; columnIndex++)
     {
       strcpy(matriz[rowIndex][columnIndex].nome, "\0");
+      matriz[rowIndex][columnIndex].linha = rowIndex;
+      matriz[rowIndex][columnIndex].coluna = columnIndex;
     }
   }
   return matriz;
