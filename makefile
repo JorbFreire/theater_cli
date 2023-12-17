@@ -8,11 +8,16 @@ SRC_FILES = \
 	src/controllers/matrizController/liberarMatriz.c \
 	src/controllers/matrizController/inicializarMatriz.c \
 	src/controllers/matrizController/index.c \
+	src/controllers/teatroController/criarTeatro.c \
+	src/controllers/teatroController/exibirTeatro.c \
+	src/controllers/teatroController/index.c \
+
 
 HEADER_FILES = \
 	src/models/Assento.h \
 	src/models/Teatro.h \
 	src/controllers/matrizController/matrizController.h \
+	src/controllers/teatroController/teatroController.h \
 
 OBJS=$(SRC_FILES:.c=.o)
 

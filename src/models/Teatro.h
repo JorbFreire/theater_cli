@@ -5,7 +5,7 @@
 
 typedef struct Teatro
 {
-  Assento **assentos[99];
+  Assento **assentos;
   int linhasTamanho;
   int colunasTamanho;
 } Teatro;

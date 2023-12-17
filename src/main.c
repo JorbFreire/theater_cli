@@ -1,12 +1,11 @@
 #include <stdio.h>
-#include "models/Assento.h"
-#include "controllers/matrizController/matrizController.h"
+#include "models/Teatro.h"
+#include "controllers/teatroController/teatroController.h"
 
 int main()
 {
-  MatrizController matrizController = getMatrizController();
+  TeatroController teatroController = getTeatroController();
   printf("hello world\n");
-  Assento **matriz = matrizController.inicializarMatriz(20, 20);
-  matrizController.liberarMatriz(matriz, 20);
+  Teatro teatro = teatroController.criarTeatro(20, 20);
   return 1;
 }
