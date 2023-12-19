@@ -5,9 +5,10 @@
 int main()
 {
   Repository repository = getRepository();
-  printf("hello world\n");
+  TeatroController teatroController = getTeatroController();
 
   Teatro teatro = repository.carregarEstado("data.txt");
+  teatroController.exibirTeatro(teatro);
   repository.salvarEstado(teatro, "data.txt");
 
   return 1;
