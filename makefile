@@ -19,6 +19,8 @@ SRC_FILES = \
 	src/repository/salvarEstado.c \
 	src/repository/carregarEstado.c \
 	src/repository/index.c \
+	src/utils/printMenu.c \
+	src/utils/exibirInformacoes.c \
 
 
 HEADER_FILES = \
@@ -28,6 +30,8 @@ HEADER_FILES = \
 	src/controllers/teatroController/teatroController.h \
 	src/controllers/reservaController/reservaController.h \
 	src/repository/repository.h \
+	src/utils/utils.h \
+
 
 OBJS=$(SRC_FILES:.c=.o)
 

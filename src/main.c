@@ -3,19 +3,21 @@
 #include "controllers/assentoController/assentoController.h"
 #include "controllers/reservaController/reservaController.h"
 #include "repository/repository.h"
+#include "utils/utils.h"
 
 int main()
 {
-  Repository repository = getRepository();
-  TeatroController teatroController = getTeatroController();
-  ReservaController reservaController = getReservaController();
-  Teatro teatro = repository.carregarEstado("data.txt");
+  printMenu();
+  // Repository repository = getRepository();
+  // TeatroController teatroController = getTeatroController();
+  // ReservaController reservaController = getReservaController();
+  // Teatro teatro = repository.carregarEstado("data.txt");
 
-  reservaController.reservarAssento(teatro, 4, 9, "Um Nome");
-  cancelarReserva(teatro, 4, 2);
+  // reservaController.reservarAssento(teatro, 4, 9, "Um Nome");
+  // cancelarReserva(teatro, 4, 2);
 
-  teatroController.exibirTeatro(teatro);
-  repository.salvarEstado(teatro, "data.txt");
+  // teatroController.exibirTeatro(teatro);
+  // repository.salvarEstado(teatro, "data.txt");
 
   return 1;
 }
