@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "controllers/teatroController/teatroController.h"
+#include "controllers/matrizController/matrizController.h"
 #include "controllers/assentoController/assentoController.h"
 #include "controllers/reservaController/reservaController.h"
 #include "repository/repository.h"
@@ -13,10 +14,12 @@ void menuLoop()
 
 int main()
 {
-  Teatro teatro;
   Repository repository = getRepository();
   TeatroController teatroController = getTeatroController();
   ReservaController reservaController = getReservaController();
+  MatrizController matrizController = getMatrizController();
+
+  Teatro teatro = teatroController.criarTeatro(1, 1);
 
   int selectedMenuOption;
 
@@ -40,11 +43,12 @@ int main()
       char *fileName = "";
       printf("Insira o nome do arquivo para carregar um teatro");
       scanf("%s", fileName);
+      matrizController.liberarMatriz(teatro.assentos, teatro.linhasTamanho);
+      teatro = repository.carregarEstado(fileName);
     }
     else if (selectedMenuOption == 3)
     {
-      // ! not built
-      printf("selectedMenuOption: %d\n", selectedMenuOption);
+      teatroController.exibirTeatro(teatro);
     }
     else if (selectedMenuOption == 4)
     {
@@ -116,12 +120,5 @@ int main()
       menuLoop();
     }
   }
-
-  // Teatro teatro = repository.carregarEstado("data.txt");
-
-  // reservaController.reservarAssento(teatro, 4, 9, "Um Nome");
-  // cancelarReserva(teatro, 4, 2);
-
-  // teatroController.exibirTeatro(teatro);
   return 1;
 }
