@@ -114,6 +114,15 @@ int main()
       else
         printf("Assento %d-%d não está disponivel", selectedColumn, selectedRow);
     }
+    else if (selectedMenuOption == 12)
+    {
+      // ! not built
+      printf("selectedMenuOption: %d\n", selectedMenuOption);
+    }
+    else if (selectedMenuOption == 13)
+    {
+      exibirInformacoes(teatro);
+    }
     else
     {
       printf("Escolha uma opção valida!\n");

@@ -11,7 +11,7 @@ Assento **inicializarMatriz(int numLinhas, int numColunas)
   {
     matriz[rowIndex] = (Assento *)malloc(numColunas * sizeof(Assento));
 
-    for (int columnIndex = 0; columnIndex < numLinhas; columnIndex++)
+    for (int columnIndex = 0; columnIndex < numColunas; columnIndex++)
     {
       strcpy(matriz[rowIndex][columnIndex].nome, "\0");
       matriz[rowIndex][columnIndex].linha = rowIndex;
