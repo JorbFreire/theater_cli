@@ -3,7 +3,7 @@
 
 int cancelarReserva(Teatro teatro, int linha, int coluna)
 {
-  if (teatro.assentos[linha][coluna].reservado == 1)
+  if (verificarDisponibilidade(teatro, linha, coluna))
   {
     char(*targetNomePointer)[99] = &teatro.assentos[linha][coluna].nome;
     strncpy(*targetNomePointer, "", sizeof(*targetNomePointer) - 1);

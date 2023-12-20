@@ -21,6 +21,7 @@ SRC_FILES = \
 	src/repository/index.c \
 	src/utils/printMenu.c \
 	src/utils/exibirInformacoes.c \
+	src/utils/verificarDisponibilidade.c \
 
 
 HEADER_FILES = \

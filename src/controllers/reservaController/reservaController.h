@@ -3,6 +3,8 @@
 
 #include "../../models/Teatro.h"
 #include "../../models/Assento.h"
+#include "../../utils/utils.h"
+
 typedef struct
 {
   int (*reservarAssento)(Teatro teatro, int linha, int coluna, char *nome);

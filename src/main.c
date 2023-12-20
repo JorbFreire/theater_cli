@@ -97,6 +97,19 @@ int main()
       printf("Cancelando todas as reservas!");
       reservaController.cancelarTodasAsReservas(teatro);
     }
+    else if (selectedMenuOption == 11)
+    {
+      int selectedColumn;
+      int selectedRow;
+      printf("Informe a coluna do assento que deseja verificar");
+      scanf("%d", &selectedColumn);
+      printf("Informe a linha do assento que deseja verificar");
+      scanf("%d", &selectedRow);
+      if (verificarDisponibilidade(teatro, selectedRow, selectedColumn))
+        printf("Assento %d-%d está disponivel", selectedColumn, selectedRow);
+      else
+        printf("Assento %d-%d não está disponivel", selectedColumn, selectedRow);
+    }
     else
     {
       printf("Escolha uma opção valida!\n");

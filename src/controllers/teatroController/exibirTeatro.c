@@ -35,7 +35,7 @@ void exibirTeatro(Teatro teatro)
 
     for (int indexColumn = 0; indexColumn < teatro.linhasTamanho; indexColumn++)
     {
-      if (teatro.assentos[indexRow][indexColumn].reservado == 1)
+      if (verificarDisponibilidade(teatro, indexRow, indexColumn))
         printAssento("X", indexColumn);
       else
         printAssento(" ", indexColumn);
