@@ -6,6 +6,5 @@
 
 void printMenu();
 void exibirInformacoes(Teatro teatro);
-int verificarDisponibilidade(Teatro t, int linha, int coluna);
 
 #endif

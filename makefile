@@ -16,12 +16,12 @@ SRC_FILES = \
 	src/controllers/reservaController/cancelarReservas.c \
 	src/controllers/reservaController/cancelarTodasAsReservas.c \
 	src/controllers/reservaController/index.c \
+	src/controllers/assentoController/verificarDisponibilidade.c \
 	src/repository/salvarEstado.c \
 	src/repository/carregarEstado.c \
 	src/repository/index.c \
 	src/utils/printMenu.c \
 	src/utils/exibirInformacoes.c \
-	src/utils/verificarDisponibilidade.c \
 
 
 HEADER_FILES = \
@@ -30,6 +30,7 @@ HEADER_FILES = \
 	src/controllers/matrizController/matrizController.h \
 	src/controllers/teatroController/teatroController.h \
 	src/controllers/reservaController/reservaController.h \
+	src/controllers/assentoController/assentoController.h \
 	src/repository/repository.h \
 	src/utils/utils.h \
 
