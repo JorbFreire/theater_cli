@@ -11,7 +11,8 @@ int main()
   ReservaController reservaController = getReservaController();
   Teatro teatro = repository.carregarEstado("data.txt");
 
-  reservaController.reservarAssento(teatro, 4, 2, "Um Nome");
+  reservaController.reservarAssento(teatro, 4, 9, "Um Nome");
+  cancelarReserva(teatro, 4, 2);
 
   teatroController.exibirTeatro(teatro);
   repository.salvarEstado(teatro, "data.txt");
