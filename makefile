@@ -22,6 +22,8 @@ SRC_FILES = \
 	src/repository/index.c \
 	src/utils/printMenu.c \
 	src/utils/exibirInformacoes.c \
+	src/utils/numberToAlphabet.c \
+	src/utils/alphabetToNumber.c \
 
 
 HEADER_FILES = \

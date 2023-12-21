@@ -6,5 +6,7 @@
 
 void printMenu();
 void exibirInformacoes(Teatro teatro);
+char numberToAlphabet(int number);
+int alphabetToNumber(char letter);
 
 #endif

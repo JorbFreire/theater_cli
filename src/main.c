@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #include "controllers/teatroController/teatroController.h"
 #include "controllers/matrizController/matrizController.h"
@@ -7,6 +8,7 @@
 #include "controllers/reservaController/reservaController.h"
 #include "repository/repository.h"
 #include "utils/utils.h"
+
 #define MAX_ROWS_AMOUNT 26
 #define MAX_COLUMNS_AMOUNT 99
 
@@ -51,7 +53,7 @@ int main()
     else if (selectedMenuOption == 4)
     {
       int selectedColumn = 0;
-      int selectedRow = 0;
+      char selectedRow;
       char name[50];
 
       while (selectedColumn <= 0 || selectedColumn > teatro.colunasTamanho)
@@ -61,16 +63,16 @@ int main()
         if (selectedColumn <= 0 || selectedColumn > teatro.colunasTamanho)
           printf("Erro: A coluna deve ser um numero entre 1 e %d\n", teatro.colunasTamanho);
       }
-      while (selectedRow <= 0 || selectedRow > teatro.linhasTamanho)
+      while (isalpha(selectedRow))
       {
-        printf("Qual a linha do assento que deseja reservar? (Número de 1 a %d)\n", teatro.linhasTamanho);
-        scanf("%d", &selectedRow);
-        if (selectedRow <= 0 || selectedRow > teatro.linhasTamanho)
-          printf("Erro: A coluna deve ser um numero entre 1 e %d\n", teatro.linhasTamanho);
+        printf("Qual a linha do assento que deseja reservar? (Letra de 'A' á '%c')\n", numberToAlphabet(teatro.linhasTamanho));
+        scanf("%c", &selectedRow);
+        if (isalpha(selectedRow))
+          printf("Erro: A linha deve ser uma letra entre 'A' e '%d'\n", teatro.linhasTamanho);
       }
-      printf("Em qual nome deseja reservar o assento %d-%d)\n", selectedColumn, selectedRow);
+      printf("Em qual nome deseja reservar o assento %c-%d)\n", selectedRow, selectedColumn);
       scanf("%s", name);
-      reservaController.reservarAssento(teatro, selectedRow, selectedColumn, name);
+      reservaController.reservarAssento(teatro, alphabetToNumber(selectedRow), selectedColumn, name);
     }
     else if (selectedMenuOption == 5)
     {
@@ -90,22 +92,22 @@ int main()
     else if (selectedMenuOption == 8)
     {
       int selectedColumn;
-      int selectedRow;
+      char selectedRow;
       while (selectedColumn <= 0 || selectedColumn > teatro.colunasTamanho)
       {
         printf("Qual a coluna do assento que deseja cancelar? (Número de 1 a %d\n)", teatro.colunasTamanho);
         scanf("%d", &selectedColumn);
         if (selectedColumn <= 0 || selectedColumn > teatro.colunasTamanho)
-          printf("Erro: A coluna deve ser um numero entre 1 e %d\n", teatro.colunasTamanho);
+          printf("Erro: A coluna deve ser um número entre 1 e %d\n", teatro.colunasTamanho);
       }
-      while (selectedRow <= 0 || selectedRow > teatro.linhasTamanho)
+      while (isalpha(selectedRow))
       {
-        printf("Qual a linha do assento que deseja cancelar? (Número de 1 a %d\n)", teatro.linhasTamanho);
-        scanf("%d", &selectedRow);
-        if (selectedRow <= 0 || selectedRow > teatro.linhasTamanho)
-          printf("Erro: A coluna deve ser um numero entre 1 e %d\n", teatro.linhasTamanho);
+        printf("Qual a linha do assento que deseja cancelar? (Letra de 'A' a '%c'\n)", numberToAlphabet(teatro.linhasTamanho));
+        scanf("%c", &selectedRow);
+        if (isalpha(selectedRow))
+          printf("Erro: A linha deve ser uma letra entre entre 'A' e %d\n", numberToAlphabet(teatro.linhasTamanho));
       }
-      reservaController.cancelarReserva(teatro, selectedRow, selectedColumn);
+      reservaController.cancelarReserva(teatro, alphabetToNumber(selectedRow), selectedColumn);
     }
     else if (selectedMenuOption == 9)
     {
@@ -122,15 +124,15 @@ int main()
     else if (selectedMenuOption == 11)
     {
       int selectedColumn;
-      int selectedRow;
+      char selectedRow;
       printf("Informe a coluna do assento que deseja verificar");
       scanf("%d", &selectedColumn);
       printf("Informe a linha do assento que deseja verificar");
-      scanf("%d", &selectedRow);
-      if (verificarDisponibilidade(teatro, selectedRow, selectedColumn))
-        printf("Assento %d-%d está disponivel", selectedColumn, selectedRow);
+      scanf("%c", &selectedRow);
+      if (verificarDisponibilidade(teatro, alphabetToNumber(selectedRow), selectedColumn))
+        printf("Assento %c-%d está disponivel", selectedRow, selectedColumn);
       else
-        printf("Assento %d-%d não está disponivel", selectedColumn, selectedRow);
+        printf("Assento %c-%d não está disponivel", selectedRow, selectedColumn);
     }
     else if (selectedMenuOption == 12)
     {
@@ -147,17 +149,17 @@ int main()
       int rowsAmount = 0;
       while (columnsAmount <= 0 || columnsAmount > MAX_COLUMNS_AMOUNT)
       {
-        printf("Qual a linha do assento que deseja cancelar? (Número de 1 a %d\n)", MAX_COLUMNS_AMOUNT);
+        printf("Qual a coluna do assento que deseja cancelar? (Numero de 1 a %d\n)", MAX_COLUMNS_AMOUNT);
         scanf("%d", &columnsAmount);
         if (columnsAmount <= 0 || columnsAmount > MAX_COLUMNS_AMOUNT)
-          printf("Erro: A quantidade de colunas deve ser um numero entre 1 e %d\n", MAX_COLUMNS_AMOUNT);
+          printf("Erro: A coluna deve ser um numero entre 1 e %d\n", MAX_COLUMNS_AMOUNT);
       }
       while (rowsAmount <= 0 || rowsAmount > MAX_ROWS_AMOUNT)
       {
-        printf("Qual a linha do assento que deseja cancelar? (Número de 1 a %d\n)", MAX_ROWS_AMOUNT);
+        printf("Qual a linha do assento que deseja cancelar? (Letra de 'A' á '%c'\n)", numberToAlphabet(MAX_ROWS_AMOUNT));
         scanf("%d", &rowsAmount);
         if (rowsAmount <= 0 || rowsAmount > MAX_ROWS_AMOUNT)
-          printf("Erro: A quantidade de linhas deve ser um numero entre 1 e %d\n", MAX_ROWS_AMOUNT);
+          printf("Erro: A linha deve ser uma letra entre 'A' e '%c'\n", numberToAlphabet(MAX_ROWS_AMOUNT));
       }
       printf("Quantas colunas tera o novo teatro?\n");
       teatro = teatroController.criarTeatro(rowsAmount, columnsAmount);

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "teatroController.h"
 #include "../assentoController/assentoController.h"
+#include "../../utils/utils.h"
 
 void printAssento(char *symbol, int indexColumn)
 {
@@ -32,7 +33,7 @@ void exibirTeatro(Teatro teatro)
   {
     if (indexRow < 9)
       printf(" ");
-    printf(" %d ", indexRow + 1);
+    printf(" %c ", numberToAlphabet(indexRow + 1));
 
     for (int indexColumn = 0; indexColumn < teatro.linhasTamanho; indexColumn++)
     {
