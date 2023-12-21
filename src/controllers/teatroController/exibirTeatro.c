@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "teatroController.h"
+#include "../assentoController/assentoController.h"
 
 void printAssento(char *symbol, int indexColumn)
 {

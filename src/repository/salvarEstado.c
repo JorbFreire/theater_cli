@@ -8,7 +8,6 @@ int salvarEstado(Teatro teatro, char *nomeArquivo)
     fprintf(stderr, "Error opening file for writing.\n");
     return 1;
   }
-
   fprintf(file, "LinhasTamanho: %d\n", teatro.linhasTamanho);
   fprintf(file, "ColunasTamanho: %d\n", teatro.colunasTamanho);
 

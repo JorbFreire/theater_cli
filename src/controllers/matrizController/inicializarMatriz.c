@@ -13,9 +13,10 @@ Assento **inicializarMatriz(int numLinhas, int numColunas)
 
     for (int columnIndex = 0; columnIndex < numColunas; columnIndex++)
     {
-      strcpy(matriz[rowIndex][columnIndex].nome, "\0");
+      strcpy(matriz[rowIndex][columnIndex].nome, "none\0");
       matriz[rowIndex][columnIndex].linha = rowIndex;
       matriz[rowIndex][columnIndex].coluna = columnIndex;
+      matriz[rowIndex][columnIndex].reservado = 0;
     }
   }
   return matriz;
