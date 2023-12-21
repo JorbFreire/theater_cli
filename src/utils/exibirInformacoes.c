@@ -16,5 +16,7 @@ void exibirInformacoes(Teatro teatro)
   printf("Numero de linhas: %d\n", teatro.linhasTamanho);
   printf("Numero de colunas: %d\n", teatro.colunasTamanho);
   printf("Numero total de assentos: %d\n", assetosAmount);
-  printf("\n\n\n");
+  printf("Numero total de reservas: %d\n", reservadosAmount);
+  printf("Numero total de assentos disponiveis: %d\n", assetosAmount - reservadosAmount);
+  printf("\n\n");
 }
