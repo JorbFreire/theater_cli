@@ -1,5 +1,5 @@
 #include "utils.h"
-#define OPTIONS_AMOUNT 14
+#define OPTIONS_AMOUNT 15
 #define OPTIONS_STRING_MAX_SIZE 45
 
 void printMenu()
