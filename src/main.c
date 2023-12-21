@@ -7,10 +7,8 @@
 #include "controllers/reservaController/reservaController.h"
 #include "repository/repository.h"
 #include "utils/utils.h"
-
-void menuLoop()
-{
-}
+#define MAX_ROWS_AMOUNT 26
+#define MAX_COLUMNS_AMOUNT 99
 
 int main()
 {
@@ -143,10 +141,31 @@ int main()
     {
       exibirInformacoes(teatro);
     }
+    else if (selectedMenuOption == 14)
+    {
+      int columnsAmount = 0;
+      int rowsAmount = 0;
+      while (columnsAmount <= 0 || columnsAmount > MAX_COLUMNS_AMOUNT)
+      {
+        printf("Qual a linha do assento que deseja cancelar? (Número de 1 a %d\n)", MAX_COLUMNS_AMOUNT);
+        scanf("%d", &columnsAmount);
+        if (columnsAmount <= 0 || columnsAmount > MAX_COLUMNS_AMOUNT)
+          printf("Erro: A quantidade de colunas deve ser um numero entre 1 e %d\n", MAX_COLUMNS_AMOUNT);
+      }
+      while (rowsAmount <= 0 || rowsAmount > MAX_ROWS_AMOUNT)
+      {
+        printf("Qual a linha do assento que deseja cancelar? (Número de 1 a %d\n)", MAX_ROWS_AMOUNT);
+        scanf("%d", &rowsAmount);
+        if (rowsAmount <= 0 || rowsAmount > MAX_ROWS_AMOUNT)
+          printf("Erro: A quantidade de linhas deve ser um numero entre 1 e %d\n", MAX_ROWS_AMOUNT);
+      }
+      printf("Quantas colunas tera o novo teatro?\n");
+      teatro = teatroController.criarTeatro(rowsAmount, columnsAmount);
+      matrizController.liberarMatriz(teatro.assentos, teatro.linhasTamanho);
+    }
     else
     {
       printf("Escolha uma opção valida!\n");
-      menuLoop();
     }
   }
   return 1;

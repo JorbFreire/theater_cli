@@ -19,6 +19,7 @@ void printMenu()
       "Verificar disponibilidade",
       "Consultar assentos consecutivos",
       "Exibir informações",
+      "Cadastrar novo teatro",
   };
   printf(" ");
   printf("Opção |");
