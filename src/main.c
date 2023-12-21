@@ -149,19 +149,18 @@ int main()
       int rowsAmount = 0;
       while (columnsAmount <= 0 || columnsAmount > MAX_COLUMNS_AMOUNT)
       {
-        printf("Qual a coluna do assento que deseja cancelar? (Numero de 1 a %d\n)", MAX_COLUMNS_AMOUNT);
+        printf("Quantas colunas tera o teatro? (Numero de 1 a %d)\n", MAX_COLUMNS_AMOUNT);
         scanf("%d", &columnsAmount);
         if (columnsAmount <= 0 || columnsAmount > MAX_COLUMNS_AMOUNT)
-          printf("Erro: A coluna deve ser um numero entre 1 e %d\n", MAX_COLUMNS_AMOUNT);
+          printf("Erro: A quantidade de colunas deve ser um numero entre 1 e %d\n", MAX_COLUMNS_AMOUNT);
       }
       while (rowsAmount <= 0 || rowsAmount > MAX_ROWS_AMOUNT)
       {
-        printf("Qual a linha do assento que deseja cancelar? (Letra de 'A' á '%c'\n)", numberToAlphabet(MAX_ROWS_AMOUNT));
+        printf("Quantas linhas tera o teatro? (Numero de 1 a %d)\n", MAX_ROWS_AMOUNT);
         scanf("%d", &rowsAmount);
         if (rowsAmount <= 0 || rowsAmount > MAX_ROWS_AMOUNT)
-          printf("Erro: A linha deve ser uma letra entre 'A' e '%c'\n", numberToAlphabet(MAX_ROWS_AMOUNT));
+          printf("Erro: A quantidade de linhas deve ser um numero entre 1 e %d\n", MAX_ROWS_AMOUNT);
       }
-      printf("Quantas colunas tera o novo teatro?\n");
       teatro = teatroController.criarTeatro(rowsAmount, columnsAmount);
       matrizController.liberarMatriz(teatro.assentos, teatro.linhasTamanho);
     }
