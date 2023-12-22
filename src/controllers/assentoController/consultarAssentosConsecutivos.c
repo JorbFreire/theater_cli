@@ -6,7 +6,7 @@ void consultarAssentosConsecutivos(Teatro teatro, int assentosAmount)
   int currentSequence = 0;
   int sequenceStart = 0;
   int sequenceEnd = 0;
-  int sequencesFound = 0;
+  int foundSequences = 0;
 
   printf("Buscando sequencia com %d ou mais assentos disponiveis na mesma linha", assentosAmount);
 
@@ -28,12 +28,15 @@ void consultarAssentosConsecutivos(Teatro teatro, int assentosAmount)
         // * there is no need to print multiple sequences inside a bigger
         // * empty chunck, this implementation prints only the big chunk
         if (currentSequence >= assentosAmount)
+        {
+          foundSequences = 1;
           printf(
               "De %c-%d até %c-%d\n",
               numberToAlphabet(sequenceStart),
               columnIndex,
               numberToAlphabet(sequenceEnd),
               columnIndex);
+        }
         sequenceStart = 0;
         sequenceEnd = 0;
         currentSequence = 0;
@@ -44,4 +47,7 @@ void consultarAssentosConsecutivos(Teatro teatro, int assentosAmount)
     sequenceEnd = 0;
     currentSequence = 0;
   }
+
+  if (foundSequences == 0)
+    printf("Nenhuma sequencia com %d livres encontradas.\n", assentosAmount);
 }

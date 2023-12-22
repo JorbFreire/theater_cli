@@ -136,8 +136,15 @@ int main()
     }
     else if (selectedMenuOption == 12)
     {
-      // ! not built
-      printf("selectedMenuOption: %d\n", selectedMenuOption);
+      int assentosAmount = 0;
+      while (assentosAmount < 2 || assentosAmount > MAX_ROWS_AMOUNT)
+      {
+        printf("Quantos assentos consecutivos deseja verificar?\n");
+        scanf("%d", &assentosAmount);
+        if (assentosAmount < 2 || assentosAmount > MAX_ROWS_AMOUNT)
+          printf("Erro: O tamanho da sequencia deve ser um numero entre 2 e %d\n", MAX_ROWS_AMOUNT);
+      }
+      consultarAssentosConsecutivos(teatro, assentosAmount);
     }
     else if (selectedMenuOption == 13)
     {
