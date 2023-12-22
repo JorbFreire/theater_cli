@@ -161,8 +161,8 @@ int main()
         if (rowsAmount <= 0 || rowsAmount > MAX_ROWS_AMOUNT)
           printf("Erro: A quantidade de linhas deve ser um numero entre 1 e %d\n", MAX_ROWS_AMOUNT);
       }
-      teatro = teatroController.criarTeatro(rowsAmount, columnsAmount);
       matrizController.liberarMatriz(teatro.assentos, teatro.linhasTamanho);
+      teatro = teatroController.criarTeatro(rowsAmount, columnsAmount);
     }
     else
     {
