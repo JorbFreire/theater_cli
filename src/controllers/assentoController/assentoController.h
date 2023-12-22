@@ -5,5 +5,6 @@
 #include "../../models/Teatro.h"
 
 int verificarDisponibilidade(Teatro teatro, int linha, int coluna);
+void consultarAssentosConsecutivos(Teatro teatro, int assentosAmount);
 
 #endif

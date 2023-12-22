@@ -17,6 +17,7 @@ SRC_FILES = \
 	src/controllers/reservaController/cancelarTodasAsReservas.c \
 	src/controllers/reservaController/index.c \
 	src/controllers/assentoController/verificarDisponibilidade.c \
+	src/controllers/assentoController/consultarAssentosConsecutivos.c \
 	src/repository/salvarEstado.c \
 	src/repository/carregarEstado.c \
 	src/repository/index.c \
