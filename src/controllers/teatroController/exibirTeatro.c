@@ -5,7 +5,10 @@
 
 void printAssento(char *symbol, int indexColumn)
 {
-  printf("| %c ", *symbol);
+  if (indexColumn + 1 > 9)
+    printf("|  %c ", *symbol);
+  else
+    printf("| %c ", *symbol);
 }
 
 void exibirTeatro(Teatro teatro)
@@ -18,13 +21,17 @@ void exibirTeatro(Teatro teatro)
 
   for (int indexBorder = -1; indexBorder < teatro.linhasTamanho; indexBorder++)
   {
-    printf("======");
+    printf("=====");
+    if (indexBorder + 1 > 9)
+    {
+      printf("=");
+    }
   }
   printf("\n");
 
   for (int indexRow = 0; indexRow < teatro.linhasTamanho; indexRow++)
   {
-    printf(" %c ", numberToAlphabet(indexRow + 1));
+    printf("  %c ", numberToAlphabet(indexRow + 1));
 
     for (int indexColumn = 0; indexColumn < teatro.linhasTamanho; indexColumn++)
     {
