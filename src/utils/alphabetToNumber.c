@@ -4,7 +4,7 @@
 int alphabetToNumber(char letter)
 {
   if (isalpha(letter))
-    return letter - 'a' + 1;
+    return tolower(letter) - 'a' + 1;
   else
     return -1;
 }

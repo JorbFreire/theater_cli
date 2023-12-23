@@ -12,30 +12,29 @@ void reservarAssentosConsecutivosPeloSistema(Teatro teatro, int assentosAmount, 
 
   printf("Buscando sequencia com %d ou mais assentos disponiveis na mesma linha\n", assentosAmount);
 
-  for (int columnIndex = 0; columnIndex < teatro.colunasTamanho; ++columnIndex)
+  for (int rowIndex = 0; rowIndex < teatro.linhasTamanho; ++rowIndex)
   {
-    for (int rowIndex = 0; rowIndex < teatro.linhasTamanho; ++rowIndex)
+    for (int columnIndex = 0; columnIndex < teatro.colunasTamanho; ++columnIndex)
     {
       if (currentSequence >= assentosAmount)
       {
         for (int sequenceIndex = sequenceStart; sequenceIndex <= sequenceEnd; ++sequenceIndex)
-          reservaController.reservarAssento(teatro, sequenceIndex, columnIndex, nome);
+          reservaController.reservarAssento(teatro, rowIndex + 1, sequenceIndex + 1, nome);
         printf(
             "Assentos reservados de %c-%d até %c-%d para '%s'\n",
-            numberToAlphabet(sequenceStart),
-            columnIndex,
-            numberToAlphabet(sequenceEnd),
-            columnIndex,
+            numberToAlphabet(rowIndex),
+            sequenceStart,
+            numberToAlphabet(rowIndex),
+            sequenceEnd,
             nome);
         return;
       }
       if (verificarDisponibilidade(teatro, rowIndex, columnIndex))
       {
-        printf("Disponivel: %d-%d", rowIndex, columnIndex);
         if (sequenceStart > 0)
-          sequenceStart = rowIndex + 1;
+          sequenceStart = columnIndex + 1;
         else
-          sequenceEnd = rowIndex + 1;
+          sequenceEnd = columnIndex + 1;
         currentSequence++;
       }
       else
