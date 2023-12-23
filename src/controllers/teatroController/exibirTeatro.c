@@ -36,9 +36,9 @@ void exibirTeatro(Teatro teatro)
     for (int indexColumn = 0; indexColumn < teatro.linhasTamanho; indexColumn++)
     {
       if (verificarDisponibilidade(teatro, indexRow, indexColumn))
-        printAssento("X", indexColumn);
-      else
         printAssento(" ", indexColumn);
+      else
+        printAssento("X", indexColumn);
     }
 
     printf("\n");

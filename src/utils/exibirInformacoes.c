@@ -8,7 +8,7 @@ void exibirInformacoes(Teatro teatro)
 
   for (int rowIndex = 0; rowIndex < teatro.linhasTamanho; rowIndex++)
     for (int columnIndex = 0; columnIndex < teatro.colunasTamanho; columnIndex++)
-      if (verificarDisponibilidade(teatro, rowIndex, columnIndex))
+      if (!verificarDisponibilidade(teatro, rowIndex, columnIndex))
         reservadosAmount++;
 
   printf("    Informações do teatro    \n");
