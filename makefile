@@ -12,6 +12,8 @@ SRC_FILES = \
 	src/controllers/teatroController/exibirTeatro.c \
 	src/controllers/teatroController/index.c \
 	src/controllers/reservaController/reservarAssento.c \
+	src/controllers/reservaController/reservarAssentosConsecutivos.c \
+	src/controllers/reservaController/reservarAssentosConsecutivosPeloSistema.c \
 	src/controllers/reservaController/cancelarReserva.c \
 	src/controllers/reservaController/cancelarReservas.c \
 	src/controllers/reservaController/cancelarTodasAsReservas.c \

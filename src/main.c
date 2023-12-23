@@ -76,8 +76,44 @@ int main()
     }
     else if (selectedMenuOption == 5)
     {
-      // ! not built
-      printf("selectedMenuOption: %d\n", selectedMenuOption);
+      int selectedColumn = 0;
+      char selectedRow;
+      int selectedRowAsNumber;
+      int sequenceSize;
+      int maxSequenceSize;
+      char name[50];
+
+      while (selectedColumn <= 0 || selectedColumn > teatro.colunasTamanho)
+      {
+        printf("Em qual coluna deseja começar a reservar? (Número de 1 a %d)\n", teatro.colunasTamanho);
+        scanf("%d", &selectedColumn);
+        if (selectedColumn <= 0 || selectedColumn > teatro.colunasTamanho)
+          printf("Erro: A coluna deve ser um numero entre 1 e %d\n", teatro.colunasTamanho);
+      }
+      while (isalpha(selectedRow))
+      {
+        printf("Em qual linha deseja começar a reservar? (Letra de 'A' á '%c')\n", numberToAlphabet(teatro.linhasTamanho));
+        scanf("%c", &selectedRow);
+        if (isalpha(selectedRow))
+          printf("Erro: A linha deve ser uma letra entre 'A' e '%d'\n", teatro.linhasTamanho);
+      }
+      selectedRowAsNumber = alphabetToNumber(selectedRow);
+      maxSequenceSize = teatro.linhasTamanho - selectedRowAsNumber + 2;
+      while (sequenceSize > 1 || sequenceSize < maxSequenceSize)
+      {
+        printf("Quantos assentos consecutivos deseja reservar? (Número de 2 a %d)\n", teatro.colunasTamanho);
+        scanf("%d", &sequenceSize);
+        if (sequenceSize > 1 || sequenceSize < maxSequenceSize)
+          printf("Erro: A quantidade de assentos deve ser um numero entre 2 e %d\n", maxSequenceSize);
+      }
+      printf(
+          "Em qual nome deseja reservar os assentos entre %c-%d e %c-%d)\n",
+          selectedRow,
+          selectedColumn,
+          numberToAlphabet(selectedRowAsNumber + sequenceSize),
+          selectedColumn);
+      scanf("%s", name);
+      reservaController.reservarAssentosConsecutivos(teatro, selectedRow, selectedColumn, sequenceSize, name);
     }
     else if (selectedMenuOption == 6)
     {
@@ -86,8 +122,17 @@ int main()
     }
     else if (selectedMenuOption == 7)
     {
-      // ! not built
-      printf("selectedMenuOption: %d\n", selectedMenuOption);
+      char name[50];
+      int assentosAmount = 0;
+      while (assentosAmount < 2 || assentosAmount > teatro.linhasTamanho)
+      {
+        printf("Quantos assentos consecutivos deseja reservar?\n");
+        scanf("%d", &assentosAmount);
+        if (assentosAmount < 2 || assentosAmount > teatro.linhasTamanho)
+          printf("Erro: O tamanho da sequencia deve ser um numero entre 2 e %d\n", MAX_ROWS_AMOUNT);
+      }
+      scanf("%s", name);
+      reservaController.reservarAssentosConsecutivosPeloSistema(teatro, assentosAmount, name);
     }
     else if (selectedMenuOption == 8)
     {
@@ -137,12 +182,12 @@ int main()
     else if (selectedMenuOption == 12)
     {
       int assentosAmount = 0;
-      while (assentosAmount < 2 || assentosAmount > MAX_ROWS_AMOUNT)
+      while (assentosAmount < 2 || assentosAmount > teatro.linhasTamanho)
       {
         printf("Quantos assentos consecutivos deseja verificar?\n");
         scanf("%d", &assentosAmount);
-        if (assentosAmount < 2 || assentosAmount > MAX_ROWS_AMOUNT)
-          printf("Erro: O tamanho da sequencia deve ser um numero entre 2 e %d\n", MAX_ROWS_AMOUNT);
+        if (assentosAmount < 2 || assentosAmount > teatro.linhasTamanho)
+          printf("Erro: O tamanho da sequencia deve ser um numero entre 2 e %d\n", teatro.linhasTamanho);
       }
       consultarAssentosConsecutivos(teatro, assentosAmount);
     }

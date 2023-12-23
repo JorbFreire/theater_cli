@@ -8,6 +8,9 @@
 typedef struct
 {
   int (*reservarAssento)(Teatro teatro, int linha, int coluna, char *nome);
+  int (*reservarAssentosConsecutivos)(Teatro teatro, int linha, int coluna, int assentosAmount, char *nome);
+  void (*reservarAssentosConsecutivosPeloSistema)(Teatro teatro, int assentosAmount, char *nome);
+
   int (*cancelarReserva)(Teatro teatro, int linha, int coluna);
   int (*cancelarReservas)(Teatro teatro, char *nome);
   int (*cancelarTodasAsReservas)(Teatro teatro);
@@ -15,6 +18,9 @@ typedef struct
 
 ReservaController getReservaController();
 int reservarAssento(Teatro teatro, int linha, int coluna, char *nome);
+int reservarAssentosConsecutivos(Teatro teatro, int startRow, int coluna, int assentosAmount, char *nome);
+void reservarAssentosConsecutivosPeloSistema(Teatro teatro, int assentosAmount, char *nome);
+
 int cancelarReserva(Teatro teatro, int linha, int coluna);
 int cancelarReservas(Teatro teatro, char *nome);
 int cancelarTodasAsReservas(Teatro teatro);
